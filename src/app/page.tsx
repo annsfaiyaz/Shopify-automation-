@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/hero-section";
+import { ServiceSelector } from "@/components/service-selector";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         // Add your image to public, then set imageSrc="/your-portrait.jpg".
         // Set imageAlt to a description of your photo.
       />
+      <ServiceSelector />
     </main>
   );
 }
