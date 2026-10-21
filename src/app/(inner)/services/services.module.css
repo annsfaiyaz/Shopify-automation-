@@ -1,0 +1,12 @@
+.section { padding: clamp(40px, 5vw, 80px) 14px var(--section-y); }
+.list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.item { display: grid; grid-template-columns: 4em minmax(0, 6fr) minmax(0, 5fr); gap: clamp(16px, 3vw, 56px); padding: clamp(24px, 3vw, 48px) 0; border-bottom: 1px solid var(--line); }
+.item h2 { margin: 0 0 8px; font-family: var(--font-primary); font-size: clamp(28px, 3vw, 52px); font-weight: 400; line-height: 1.05; }
+.item p { margin: 0 0 12px; line-height: 1.6; }
+.index { color: var(--accent); font-size: 13px; letter-spacing: .1em; }
+.audience { color: var(--muted); font-size: 14px; }
+.included { display: grid; gap: 8px; margin: 0 0 16px; padding: 0; list-style: none; }
+.included li::before { content: "— "; color: var(--muted); }
+.terms { color: var(--muted); font-size: 13px; }
+@media (max-width: 900px) { .item { grid-template-columns: 1fr; } }
+@media (max-width: 650px) { .section { padding-inline: 8px; } }

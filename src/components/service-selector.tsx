@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent } from "react";
 import styles from "./service-selector.module.css";
 
-const services = ["web design", "branding", "development"] as const;
+const services = ["a Rails rescue", "an AI feature", "an MVP", "a tech lead", "a health/fintech app"] as const;
 const offsets = [-2, -1, 0, 1, 2];
 
 export function ServiceSelector() {
@@ -35,7 +35,7 @@ export function ServiceSelector() {
   const copyBrief = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const text = `Project enquiry: ${service}\nName: ${data.get("name")}\nEmail: ${data.get("email")}\n\n${data.get("details")}`;
+    const text = `Project enquiry: I need ${service}\nName: ${data.get("name")}\nEmail: ${data.get("email")}\n\n${data.get("details")}`;
     setBrief(text);
     try {
       await navigator.clipboard.writeText(text);
@@ -46,8 +46,8 @@ export function ServiceSelector() {
   };
 
   return (
-    <section id="services" className={styles.section} aria-label="Start a project">
-      <div id="contact" className={styles.panel}>
+    <section id="contact" className={styles.section} aria-label="Start a project">
+      <div className={styles.panel}>
         {step === "service" ? (
           <div className={styles.selector}>
             <h2 className={styles.prompt}>I need</h2>
@@ -69,11 +69,11 @@ export function ServiceSelector() {
             <button type="button" className={styles.next} onClick={openBrief}>
               next <svg viewBox="0 0 60 48" aria-hidden="true"><path d="M4 24h48M33 5l19 19-19 19" /></svg>
             </button>
-            <p className={styles.srOnly} aria-live="polite">Selected service: {service}</p>
+            <p className={styles.srOnly} aria-live="polite">Selected: I need {service}</p>
           </div>
         ) : (
           <div className={styles.brief}>
-            <button type="button" className={styles.back} onClick={() => { setStep("service"); setMessage(""); setBrief(""); }}>← change service</button>
+            <button type="button" className={styles.back} onClick={() => { setStep("service"); setMessage(""); setBrief(""); }}>← change</button>
             <h2 ref={titleRef} tabIndex={-1}>Let&apos;s make<br />it happen.</h2>
             <p className={styles.chosen}>I need <span>{service}</span></p>
             <form onSubmit={copyBrief}>
@@ -81,7 +81,7 @@ export function ServiceSelector() {
                 <label>Your name<input name="name" autoComplete="name" required maxLength={120} placeholder="What's your name?" /></label>
                 <label>Email<input name="email" type="email" autoComplete="email" required maxLength={254} placeholder="you@example.com" /></label>
               </div>
-              <label>A little about your project<textarea name="details" required rows={3} maxLength={4000} placeholder="The idea, the ambition, the timeline…" /></label>
+              <label>A little about your project<textarea name="details" required rows={3} maxLength={4000} placeholder="What you are building, what is slow or missing, and when you need it…" /></label>
               <button className={styles.copy} type="submit">Copy project brief ↗</button>
               <p className={styles.feedback} role="status">{message}</p>
               {brief && <textarea className={styles.result} aria-label="Your project brief" value={brief} readOnly rows={5} onFocus={(event) => event.target.select()} />}

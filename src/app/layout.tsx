@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import localFont from "next/font/local";
+import { Footer } from "@/components/footer";
 import "./tailwind.css";
 import "./globals.css";
 
-const lobsterTwo = localFont({
+const nunito = localFont({
   src: [
-    { path: "./fonts/lobster-two/LobsterTwo-Regular.ttf", weight: "400", style: "normal" },
-    { path: "./fonts/lobster-two/LobsterTwo-Bold.ttf", weight: "700", style: "normal" },
-    { path: "./fonts/lobster-two/LobsterTwo-Italic.ttf", weight: "400", style: "italic" },
-    { path: "./fonts/lobster-two/LobsterTwo-BoldItalic.ttf", weight: "700", style: "italic" },
+    { path: "./fonts/Nunito/Nunito-VariableFont_wght.ttf", weight: "200 1000", style: "normal" },
+    { path: "./fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf", weight: "200 1000", style: "italic" },
   ],
-  variable: "--font-lobster-two",
+  variable: "--font-Nunito",
   display: "swap",
-  preload: false,
+  preload: true,
 });
 
 const openSans = Open_Sans({
@@ -23,17 +22,21 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name — Creative Developer",
-  description: "An independent portfolio at the intersection of design and code.",
+  title: "Ahsan Faiyaz — Senior Software & AI Engineer",
+  description:
+    "Senior software and AI engineer for SaaS, FinTech and HealthTech. I fix slow systems, ship MVPs and add AI features that work.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${lobsterTwo.variable} ${openSans.variable} h-full antialiased`}
+      className={`${nunito.variable} ${openSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

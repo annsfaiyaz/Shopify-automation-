@@ -1,0 +1,3 @@
+.reveal { transition: opacity 700ms ease, transform 700ms cubic-bezier(.22, 1, .36, 1); }
+.reveal[data-state="hidden"] { opacity: 0; transform: translateY(24px); }
+@media (prefers-reduced-motion: reduce) { .reveal { transition: none; } .reveal[data-state="hidden"] { opacity: 1; transform: none; } }

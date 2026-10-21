@@ -1,0 +1,13 @@
+.section { padding: var(--section-y) 14px; scroll-margin-top: 90px; }
+.list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.card { display: flex; flex-direction: column; gap: 14px; padding: clamp(24px, 2.4vw, 40px); border: 1px solid var(--line); border-radius: 36px; transition: border-color 400ms ease; }
+.card:hover { border-color: var(--foreground); }
+.card h3 { margin: 0; font-family: var(--font-primary); font-size: clamp(28px, 2.6vw, 44px); font-weight: 400; line-height: 1.05; }
+.card p { margin: 0; line-height: 1.6; }
+.index { color: var(--accent); font-size: 13px; letter-spacing: .1em; }
+.audience { color: var(--muted); font-size: 14px; }
+.terms { margin-top: auto !important; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.more { display: inline-block; margin-top: 32px; color: var(--foreground); }
+.more:hover { color: var(--accent); }
+@media (max-width: 1000px) { .list { grid-template-columns: 1fr; } }
+@media (max-width: 650px) { .section { padding-inline: 8px; } .card { border-radius: 26px; } }

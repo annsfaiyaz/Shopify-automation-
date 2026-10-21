@@ -1,7 +1,13 @@
 :root {
   --background: #171716;
   --foreground: #d4d2cb;
-  --font-primary: var(--font-lobster-two), cursive;
+  --muted: #96958e;
+  --line: #4b4a45;
+  --accent: #ed735e;
+  --card: #fff;
+  --card-ink: #111;
+  --section-y: clamp(96px, 12vw, 200px);
+  --font-primary: var(--font-Nunito), sans-serif;
   --font-secondary: var(--font-open-sans), sans-serif;
 }
 
@@ -12,6 +18,6 @@ body {
 }
 
 ::selection {
-  background: #d4d2cb;
-  color: #171716;
+  background: var(--foreground);
+  color: var(--background);
 }

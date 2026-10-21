@@ -1,0 +1,6 @@
+.footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin: 0 14px; padding: 20px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.footer nav { display: flex; flex-wrap: wrap; gap: 20px; }
+.footer a { transition: color 180ms ease; }
+.footer a:hover { color: #fff; }
+.footer a:focus-visible { outline: 1px solid var(--foreground); outline-offset: 5px; }
+@media (max-width: 650px) { .footer { margin: 0 8px; } }

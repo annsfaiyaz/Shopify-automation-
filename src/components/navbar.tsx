@@ -8,12 +8,11 @@ import styles from "./navbar.module.css";
 type NavLink = { label: string; href: string };
 
 const defaultLinks: NavLink[] = [
-  { label: "Home", href: "/#home" },
-  { label: "About Me", href: "/#about" },
-  { label: "Portfolio", href: "/#portfolio" },
-  { label: "Designs", href: "/#designs" },
-  { label: "Services", href: "/#services" },
-  { label: "Blog", href: "/#blog" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Process", href: "/process" },
+  { label: "Contact", href: "/contact" },
 ];
 
 type NavbarProps = {
@@ -24,7 +23,7 @@ type NavbarProps = {
   contactHref?: string;
 };
 
-export function Navbar({ name, initials, avatarSrc, links = defaultLinks, contactHref = "/#contact" }: NavbarProps) {
+export function Navbar({ name, initials, avatarSrc, links = defaultLinks, contactHref = "/contact" }: NavbarProps) {
   const [compact, setCompact] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -71,9 +70,9 @@ export function Navbar({ name, initials, avatarSrc, links = defaultLinks, contac
         {links.map(({ label, href }) => (
           <Link key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</Link>
         ))}
-        <Link href={contactHref} className={styles.mobileContact} onClick={() => setMenuOpen(false)}>Let&apos;s Connect</Link>
+        <Link href={contactHref} className={styles.mobileContact} onClick={() => setMenuOpen(false)}>Book a call</Link>
       </div>
-      <Link className={styles.contact} href={contactHref}>Let&apos;s Connect</Link>
+      <Link className={styles.contact} href={contactHref}>Book a call</Link>
       <button id="navbar-menu-toggle" className={styles.menuToggle} type="button"
         aria-expanded={menuOpen} aria-controls="navbar-links"
         aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
